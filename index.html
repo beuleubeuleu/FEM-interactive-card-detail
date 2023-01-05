@@ -1,80 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="styles.css">
 
-  <title>Frontend Mentor | Interactive card details form</title>
+    <title>Frontend Mentor | Interactive card details form</title>
 
 </head>
 <body>
-  <div class="container flex">
+<div class="container flex">
     <section class="left">
 
-      <div class="card-front flex">
-        <img src="images/card-logo.svg" alt="logo">
+        <div class="card-front flex">
+            <img src="images/card-logo.svg" alt="logo">
 
-        <div class="card-text">
+            <div class="card-text">
 
-          <div class="show-input">
-            <p class="show-number">4729 2457 5429 5479</p>
+                <div class="show-input">
+                    <p class="show-number">XXXX XXXX XXXX XXXX</p>
 
-            <div class="name-exp-container flex">
-              <p class="show-name">fgaklgne f,ajngea</p>
-              <p class="show-exp">90/90</p>
+                    <div class="name-exp-container flex">
+                        <p class="show-name">Barrack Obama</p>
+                        <p><span class="show-month">01</span>/<span class="show-year">01</span></p>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
 
-      <div class="card-back">
+        <div class="card-back">
 
-        <div class="cvc-container">
-          <p class="show-cvc">421</p>
+            <div class="cvc-container">
+                <p class="show-cvc">000</p>
 
+            </div>
         </div>
-      </div>
     </section>
 
     <section class="right flex">
 
-      <form>
-        <ul class="grid">
-          <li class="grid-name">
-            <label for="name">CARDHOLDER NAME</label>
-            <input type="text" class="form-input" id="name" placeholder="e.g. Barrack Obama">
-          </li>
+        <form>
+            <ul class="grid">
+                <li class="grid-name">
+                    <label for="name">CARDHOLDER NAME</label>
+                    <input type="text" class="form-input" id="name" placeholder="e.g. Barrack Obama">
+                </li>
 
-          <li class="grid-num">
-            <label for="card-number">CARD NUMBER</label>
-            <input type="text" class="form-input" id="card-number" placeholder="e.g. 1234 1234 1234 1234">
-          </li>
+                <li class="grid-num">
+                    <label for="card-number">CARD NUMBER</label>
+                    <input type="text" class="form-input" id="card-number" placeholder="e.g. 1234 1234 1234 1234" maxlength="19">
+                </li>
 
-          <li class="grid-exp">
-            <label for="expiration">EXP.DATE (MM/YY)</label>
-            <div class="exp-inputs" id="expiration">
-              <input type="text" class="form-input" id="month" placeholder="MM">
-              <input type="text" class="form-input" id="year" placeholder="YY">
-            </div>
-          </li>
+                <li class="grid-exp">
+                    <label for="expiration">EXP.DATE (MM/YY)</label>
+                    <div class="exp-inputs" id="expiration">
+                        <input type="text" class="form-input" id="month" placeholder="MM" maxlength="2">
+                        <input type="text" class="form-input" id="year" placeholder="YY" maxlength="2">
+                    </div>
+                </li>
 
-          <li class="grid-cvc">
-            <label for="cvc">CVC</label>
-            <input type="text" class="form-input" id="cvc" placeholder="e.g. 123">
-          </li>
+                <li class="grid-cvc">
+                    <label for="cvc">CVC</label>
+                    <input type="text" class="form-input" id="cvc" placeholder="e.g. 123" maxlength="3">
+                </li>
 
-          <li class="grid-btn">
-            <button type="submit" class="form-submit">Confirm</button>
-          </li>
+                <li class="grid-btn">
+                    <button type="submit" class="form-submit">Confirm</button>
+                </li>
 
-        </ul>
-      </form>
+            </ul>
+        </form>
     </section>
-  </div>
+</div>
 
-  <script src="main.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
