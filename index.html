@@ -42,16 +42,25 @@
 
     <section class="right flex">
 
+        <div class="complete none">
+            <img src="images/icon-complete.svg" alt="">
+            <p class="ty">THANK YOU!</p>
+            <p class="ty2">We've added your card details</p>
+            <button class="continue">Continue</button>
+        </div>
+
         <form>
             <ul class="grid">
                 <li class="grid-name">
                     <label for="name">CARDHOLDER NAME</label>
                     <input type="text" class="form-input" id="name" placeholder="e.g. Barrack Obama">
+                    <p class="error-message"></p>
                 </li>
 
                 <li class="grid-num">
                     <label for="card-number">CARD NUMBER</label>
                     <input type="text" class="form-input" id="card-number" placeholder="e.g. 1234 1234 1234 1234" maxlength="19">
+                    <p class="error-message"></p>
                 </li>
 
                 <li class="grid-exp">
@@ -60,11 +69,14 @@
                         <input type="text" class="form-input" id="month" placeholder="MM" maxlength="2">
                         <input type="text" class="form-input" id="year" placeholder="YY" maxlength="2">
                     </div>
+                    <p class="error-message"></p>
+
                 </li>
 
                 <li class="grid-cvc">
                     <label for="cvc">CVC</label>
                     <input type="text" class="form-input" id="cvc" placeholder="e.g. 123" maxlength="3">
+                    <p class="error-message"></p>
                 </li>
 
                 <li class="grid-btn">

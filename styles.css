@@ -20,6 +20,10 @@ img {
     --very-dark-violet: hsl(278, 68%, 11%);
 }
 
+.none {
+    display: none;
+}
+
 .flex {
     display: flex;
 }
@@ -54,7 +58,7 @@ img {
     align-items: flex-start;
     justify-content: space-between;
 
-    position:absolute;
+    position: absolute;
     top: 15%;
     left: 10%;
 }
@@ -78,7 +82,7 @@ img {
 
     background: url("images/bg-card-back.png");
 
-    position:absolute;
+    position: absolute;
     top: 45%;
     left: 15%;
 }
@@ -118,7 +122,7 @@ img {
             "num num num num"
             "exp exp cvc cvc"
             "btn btn btn btn";
-    grid-row-gap: 2.5rem;
+    grid-row-gap: 1rem;
     grid-column-gap: 1rem;
 }
 
@@ -142,6 +146,8 @@ img {
 
     color: var(--very-dark-violet);
     font-size: 1rem;
+
+    transition: all 0.3s ease-out;
 }
 
 .form-input::placeholder {
@@ -154,7 +160,7 @@ img {
     outline: 1px solid #6448FE;
 }
 
-.form-submit {
+button {
     background: var(--very-dark-violet);
     color: var(--white);
     font-size: 1rem;
@@ -182,6 +188,7 @@ img {
     width: 40%;
     margin-right: 1em;
 }
+
 .exp-inputs {
     display: flex;
 }
@@ -192,4 +199,40 @@ img {
 
 .grid-btn {
     grid-area: btn;
+}
+
+.complete {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    width: 45%;
+}
+
+.ty {
+    color: var(--very-dark-violet);
+    font-size: 2rem;
+    margin-top: 1rem;
+}
+.ty2 {
+    color: var(--dark-grayish-violet);
+    margin-bottom: 1rem;
+}
+.continue {
+    width: 100%;
+}
+
+.error {
+    box-shadow: none;
+    outline: 1px solid var(--red);
+}
+.error-message {
+    color: var(--red);
+    font-weight: 100;
+    opacity: 0.6;
+}
+
+.exp-error {
+    gap: 4rem;
 }
