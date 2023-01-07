@@ -18,11 +18,12 @@ for (let category of listOfInputs) {
 }
 
 //Reset card details if input is empty
+const IS_EMPTY = ""
 
 for (let category of listOfInputs) {
     category.addEventListener("focusout", category => {
         let cardCategory = category.target.id
-        if (cardCategories[cardCategory].textContent === "") {
+        if (cardCategories[cardCategory].textContent === IS_EMPTY) {
             if (cardCategory === "name") {
                 cardCategories[cardCategory].textContent = "Barrack Obama"
             }
@@ -51,9 +52,9 @@ const completeMsg = document.querySelector(".complete")
 submitBtn.addEventListener("click", e => {
     e.preventDefault()
 
+    const ONLY_WORDS = new RegExp("^[a-zA-Z\\s]+$")
+    const ONLY_NUMBERS = new RegExp("^[0-9\\s]+$")
     const isValid = category => {
-        const ONLY_WORDS = new RegExp("^[a-zA-Z\\s]+$")
-        const ONLY_NUMBERS = new RegExp("^[0-9\\s]+$")
 
         const CVC_LESS_THAN_3 = category.id === "cvc" && category.value.length < 3;
         const YEAR_OR_MONTH_LESS_THAN_2 = category.id === "year" && category.value.length < 2 || category.id === "month" && category.value.length < 2
@@ -70,9 +71,6 @@ submitBtn.addEventListener("click", e => {
     }
 
     const displayErrorMessage = category => {
-        const IS_EMPTY = ""
-        const ONLY_NUMBERS = new RegExp("^[0-9\\s]+$")
-        const ONLY_WORDS = new RegExp("^[a-zA-Z\\s]+$")
         const CARD_NUMBER_NOT_IN_RANGE = category.id === "card-number" && (category.value.length !== 19);
         const MONTH_IS_NOT_VALID = category.id === "month" && category.value > 12
         const CVC_LESS_THAN_3 = category.id === "cvc" && category.value.length < 3;
@@ -86,7 +84,7 @@ submitBtn.addEventListener("click", e => {
             errorMsgElement.textContent = "Card Number invalid, check your card again"
         }
         if (YEAR_OR_MONTH_LESS_THAN_2) {
-            errorMsgElement.textContent = "must be 3 digits"
+            errorMsgElement.textContent = "must be 2 digits"
         }
         if (MONTH_IS_NOT_VALID) {
             errorMsgElement.textContent = "not a valid month"
@@ -114,7 +112,7 @@ submitBtn.addEventListener("click", e => {
             displayErrorMessage(category)
 
         } else {
-            let errorMsgElement = category.id === "year" || category.id === "month" ? category.parentNode.nextSibling.nextSibling: category.nextSibling.nextSibling;
+            let errorMsgElement = category.nextSibling.nextSibling;
 
             category.classList.remove("error")
             errorMsgElement.textContent= ""
