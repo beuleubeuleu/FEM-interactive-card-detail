@@ -86,10 +86,10 @@ submitBtn.addEventListener("click", e => {
             errorMsgElement.textContent = "Card Number invalid, check your card again"
         }
         if (YEAR_OR_MONTH_LESS_THAN_2) {
-            errorMsgElement.textContent = "must be 2 digits"
+            errorMsgElement.textContent = "must be 3 digits"
         }
         if (MONTH_IS_NOT_VALID) {
-            errorMsgElement.textContent = "not  valid month"
+            errorMsgElement.textContent = "not a valid month"
         }
         if (CVC_LESS_THAN_3) {
             errorMsgElement.textContent = "CVC must but 3 numbers"
