@@ -66,10 +66,15 @@
                 <li class="grid-exp">
                     <label for="expiration">EXP.DATE (MM/YY)</label>
                     <div class="exp-inputs" id="expiration">
-                        <input type="text" class="form-input" id="month" placeholder="MM" maxlength="2">
-                        <input type="text" class="form-input" id="year" placeholder="YY" maxlength="2">
+                        <div class="exp-month flex">
+                            <input type="text" class="form-input" id="month" placeholder="01" maxlength="2">
+                            <p class="error-message"></p>
+                        </div>
+                        <div class="exp-year flex">
+                            <input type="text" class="form-input" id="year" placeholder="23" maxlength="2">
+                            <p class="error-message"></p>
+                        </div>
                     </div>
-                    <p class="error-message"></p>
 
                 </li>
 

@@ -236,3 +236,13 @@ button {
 .exp-error {
     gap: 4rem;
 }
+
+.exp-month, .exp-year {
+    flex-direction: column;
+}
+.exp-month .form-input{
+    width: 50%;
+}
+.exp-year .form-input{
+    width: 50%;
+}

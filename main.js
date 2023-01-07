@@ -1,4 +1,4 @@
-const listOfInputs = document.querySelectorAll(".right form ul li input")
+const listOfInputs = document.querySelectorAll(".right form ul li .form-input")
 
 const cardCategories = {
     "name": document.querySelector(".show-name"),
@@ -32,6 +32,12 @@ for (let category of listOfInputs) {
             if (cardCategory === "cvc") {
                 cardCategories[cardCategory].textContent = "XXX"
             }
+            if (cardCategory=== "month") {
+                cardCategories[cardCategory].textContent = "01"
+            }
+            if (cardCategory === "year") {
+                cardCategories[cardCategory].textContent = "01"
+            }
         }
     })
 }
@@ -50,7 +56,7 @@ submitBtn.addEventListener("click", e => {
         const ONLY_NUMBERS = new RegExp("^[0-9\\s]+$")
 
         const CVC_LESS_THAN_3 = category.id === "cvc" && category.value.length < 3;
-        const YEAR_OR_MONTH_LESS_THAN_2 = (category.id === "year" || category.id === "month") && category.value.length < 2;
+        const YEAR_OR_MONTH_LESS_THAN_2 = category.id === "year" && category.value.length < 2 || category.id === "month" && category.value.length < 2
         const CARD_NUMBER_NOT_IN_RANGE = category.id === "card-number" && (category.value.length !== 19);
         const MONTH_IS_NOT_VALID = category.id === "month" && category.value > 12
 
@@ -70,15 +76,23 @@ submitBtn.addEventListener("click", e => {
         const CARD_NUMBER_NOT_IN_RANGE = category.id === "card-number" && (category.value.length !== 19);
         const MONTH_IS_NOT_VALID = category.id === "month" && category.value > 12
         const CVC_LESS_THAN_3 = category.id === "cvc" && category.value.length < 3;
-        const YEAR_OR_MONTH_LESS_THAN_2 = (category.id === "year" || category.id === "month") && category.value.length < 2;
+        const YEAR_OR_MONTH_LESS_THAN_2 = category.id === "year" && category.value.length < 2 || category.id === "month" && category.value.length < 2
 
 
-        let errorMsgElement = category.id === "year" || category.id === "month" ? category.parentNode.nextSibling.nextSibling: category.nextSibling.nextSibling;
+        let errorMsgElement = category.nextSibling.nextSibling;
 
         category.classList.add("error")
-        if (category.value === IS_EMPTY) {
-            console.log(errorMsgElement)
-            errorMsgElement.textContent = "Can't be blank"
+        if (CARD_NUMBER_NOT_IN_RANGE) {
+            errorMsgElement.textContent = "Card Number invalid, check your card again"
+        }
+        if (YEAR_OR_MONTH_LESS_THAN_2) {
+            errorMsgElement.textContent = "must be 2 digits"
+        }
+        if (MONTH_IS_NOT_VALID) {
+            errorMsgElement.textContent = "not  valid month"
+        }
+        if (CVC_LESS_THAN_3) {
+            errorMsgElement.textContent = "CVC must but 3 numbers"
         }
         if (category.id === "name" && !ONLY_WORDS.test(category.value)) {
             errorMsgElement.textContent = "Wrong format, letters only"
@@ -86,17 +100,9 @@ submitBtn.addEventListener("click", e => {
         if (category.id === "card-number" && !ONLY_NUMBERS.test(category.value)) {
             errorMsgElement.textContent = "Wrong format, numbers only"
         }
-        if (CARD_NUMBER_NOT_IN_RANGE) {
-            errorMsgElement.textContent = "Card Number invalid, check your card again"
-        }
-        if (YEAR_OR_MONTH_LESS_THAN_2) {
-            errorMsgElement.textContent = "Dont forget the first 0"
-        }
-        if (MONTH_IS_NOT_VALID) {
-            errorMsgElement.textContent = "Month doesnt exist"
-        }
-        if (CVC_LESS_THAN_3) {
-            errorMsgElement.textContent = "CVC must but 3 numbers"
+        if (category.value === IS_EMPTY) {
+            console.log(errorMsgElement)
+            errorMsgElement.textContent = "Can't be blank"
         }
     }
 
@@ -106,6 +112,7 @@ submitBtn.addEventListener("click", e => {
         checkCategories.push(isValid((category)))
         if (!isValid(category)) {
             displayErrorMessage(category)
+
         } else {
             let errorMsgElement = category.id === "year" || category.id === "month" ? category.parentNode.nextSibling.nextSibling: category.nextSibling.nextSibling;
 
