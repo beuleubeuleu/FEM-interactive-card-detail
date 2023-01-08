@@ -95,7 +95,7 @@ submitBtn.addEventListener("click", e => {
         if (category.id === "name" && !ONLY_WORDS.test(category.value)) {
             errorMsgElement.textContent = "Wrong format, letters only"
         }
-        if ((category.id === "card-number" || category.id === "cvc") && !ONLY_NUMBERS.test(category.value)) {
+        if ((category.id === "card-number" || category.id === "cvc" || category.id === "month"|| category.id === "year") && !ONLY_NUMBERS.test(category.value)) {
             errorMsgElement.textContent = "Wrong format, numbers only"
         }
         if (category.value === IS_EMPTY) {
